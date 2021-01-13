@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM nginx:1.19.6-alpine
 MAINTAINER gefangshuai <gefangshuai@163.com>
 
 RUN echo 'http://mirrors.aliyun.com/alpine/v3.6/community/'>/etc/apk/repositories
@@ -13,10 +13,3 @@ RUN apk update && \
     echo Asia/Shanghai > /etc/timezone && \
     apk del tzdata && \
     rm -rf /tmp/* /var/cache/apk/*
-
-RUN apk add --update --no-cache ttf-dejavu fontconfig && rm -rf /var/cache/apk/*
-
-ADD ./libs/msyh.ttc /usr/share/fonts/
-ADD ./libs/msyhbd.ttc /usr/share/fonts/
-ADD ./libs/msyhl.ttc /usr/share/fonts/
-ADD ./libs/simsun.ttc /usr/share/fonts/
