@@ -28,3 +28,10 @@ docker build -t openjdk-8 .
 ```bash
 docker build -t nginx .
 ```
+
+# file-online-preview-server
+
+构建方式：
+```bash
+docker build -t file-online-preview-server .
+```
