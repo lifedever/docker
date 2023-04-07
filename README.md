@@ -14,7 +14,7 @@ docker image build by myself
 构建方式：
 
 ```bash
-docker build -t openjdk-8 .
+docker build -t openjdk-8 . --platform=linux/amd64
 ```
 
 # nginx
