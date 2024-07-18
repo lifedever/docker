@@ -35,3 +35,10 @@ docker build -t nginx .
 ```bash
 docker build -t file-online-preview-server .
 ```
+
+# node
+
+构建方式：
+```bash
+docker build -t node . --platform=linux/amd64
+```
