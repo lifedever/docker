@@ -26,14 +26,14 @@ docker build -t openjdk-8 . --platform=linux/amd64
 构建方式：
 
 ```bash
-docker build -t nginx .
+docker build -t nginx . --platform=linux/amd64
 ```
 
 # file-online-preview-server
 
 构建方式：
 ```bash
-docker build -t file-online-preview-server .
+docker build -t file-online-preview-server . --platform=linux/amd64
 ```
 
 # node
@@ -41,4 +41,10 @@ docker build -t file-online-preview-server .
 构建方式：
 ```bash
 docker build -t node . --platform=linux/amd64
+```
+
+# node-18-ubuntu-22_04
+构建方式：
+```bash
+docker build -t node-18-ubuntu-22_04 . --platform=linux/amd64
 ```
