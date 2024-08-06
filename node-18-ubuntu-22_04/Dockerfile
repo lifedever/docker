@@ -29,9 +29,6 @@ RUN apt-get install -y nodejs
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && mkdir -p /usr/src/app
 
-ADD ./libs/msyh.ttc /usr/share/fonts/
-ADD ./libs/msyhbd.ttc /usr/share/fonts/
-ADD ./libs/msyhl.ttc /usr/share/fonts/
-ADD ./libs/simsun.ttc /usr/share/fonts/
+ADD ./libs/* /usr/share/fonts/
 
 WORKDIR /usr/src/app
