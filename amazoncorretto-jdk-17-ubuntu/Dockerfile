@@ -30,9 +30,10 @@ RUN mkdir -p /usr/share/fonts/custom
 
 # 复制本地 fonts 文件夹中的字体文件到镜像
 COPY fonts/*.ttc /usr/share/fonts/custom/
+COPY fonts/*.ttf /usr/share/fonts/custom/
 
 # 设置字体权限并更新字体缓存
-RUN chmod 644 /usr/share/fonts/custom/*.ttc && \
+RUN chmod 644 /usr/share/fonts/custom/* && \
     fc-cache -fv
 
 # 配置中文字符集
