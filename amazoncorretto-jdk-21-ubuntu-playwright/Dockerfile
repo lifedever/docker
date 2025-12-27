@@ -97,18 +97,9 @@ ENV JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 # Playwright 环境变量（使用 Playwright 标准目录）
+# 注意：Node.js 和 Java 版本的 Playwright 浏览器版本不兼容
+# 需要在应用层使用 Playwright Java CLI 安装浏览器
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
-# ============================================
-# 预安装 Playwright Chromium
-# 使用 npx playwright 安装浏览器到标准目录
-# ============================================
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends nodejs npm && \
-    npx playwright install chromium && \
-    # 清理 Node.js（可选，如果不需要保留）
-    apt-get purge -y nodejs npm && \
-    apt-get autoremove -y && \
-    rm -rf /var/lib/apt/lists/* /root/.npm /root/.cache && \
-    # 验证安装并列出浏览器文件
-    ls -la /ms-playwright/
+# 创建浏览器目录并设置权限
+RUN mkdir -p /ms-playwright && chmod 777 /ms-playwright
