@@ -1,8 +1,8 @@
 FROM amazoncorretto:17-alpine-jdk
 MAINTAINER gefangshuai <gefangshuai@163.com>
 
-RUN echo 'http://mirrors.aliyun.com/alpine/v3.6/community/'>/etc/apk/repositories
-RUN echo 'http://mirrors.aliyun.com/alpine/v3.6/main/'>>/etc/apk/repositories
+# 使用阿里云镜像加速（自动匹配 Alpine 版本）
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 #设置字符集
 ENV LANG en_US.UTF-8
