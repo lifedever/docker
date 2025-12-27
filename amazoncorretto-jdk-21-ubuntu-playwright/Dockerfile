@@ -99,3 +99,16 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 # Playwright 环境变量（使用 Playwright 标准目录）
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
+# ============================================
+# 预安装 Playwright Chromium
+# 使用 npx playwright 安装浏览器到标准目录
+# ============================================
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends nodejs npm && \
+    npx playwright install chromium && \
+    # 清理 Node.js（可选，如果不需要保留）
+    apt-get purge -y nodejs npm && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/* /root/.npm /root/.cache && \
+    # 验证安装并列出浏览器文件
+    ls -la /ms-playwright/
