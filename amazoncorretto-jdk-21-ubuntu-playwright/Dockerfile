@@ -96,6 +96,6 @@ WORKDIR /app
 ENV JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-# Playwright 环境变量（可选，用于指定浏览器缓存目录）
-ENV PLAYWRIGHT_BROWSERS_PATH=/opt/playwright
+# Playwright 环境变量（使用 Playwright 标准目录）
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
