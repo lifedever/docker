@@ -1,4 +1,4 @@
-FROM amazoncorretto:24-alpine-jdk
+FROM amazoncorretto:21-alpine-jdk
 MAINTAINER gefangshuai <gefangshuai@163.com>
 
 # 使用阿里云镜像加速（自动匹配 Alpine 版本）
